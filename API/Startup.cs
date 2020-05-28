@@ -41,6 +41,7 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseStaticFiles(); //for wwwroot to work
 
             app.UseAuthorization();
 
