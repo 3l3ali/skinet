@@ -15,6 +15,14 @@ namespace Infrastructure.Data
             {
                 query = query.Where(spec.Criteria);  // Criteria is gonnab be like " p => p.ProductTypeId == id "
             }
+            if(spec.OrderBy != null)
+            {
+                query = query.OrderBy(spec.OrderBy);
+            }
+            if(spec.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spec.OrderByDescending);
+            }
 
             query = spec.Includes.Aggregate(query, (current, include) => current.Include(include));
 
