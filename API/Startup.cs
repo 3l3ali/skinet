@@ -28,6 +28,11 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles)); //Maping Entites to Dtos 
             services.AddApplicationServices(); //in Api/Extentions
             services.AddSwaggerDocumentation(); //in Api/Extentions
+            services.AddCors(option => {     //Cross Origin Research Support 
+                option.AddPolicy("CorsPolicy", policy => {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +50,8 @@ namespace API
 
             app.UseRouting();
             app.UseStaticFiles(); //for wwwroot to work
+
+            app.UseCors("CorsPolicy"); //enabling CORS 
 
             app.UseAuthorization();
 
