@@ -37,8 +37,8 @@
             </div> 
 
             <div class="row">
-                <div class="col-md-4" *ngFor="let product of products">
-                    <app-product-item></app-product-item>
+                <div class="col-md-4 mb-4" *ngFor="let singleProduct of products">
+                    <app-product-item [product]="singleProduct"></app-product-item>
                 </div>
             </div>
         </section>
