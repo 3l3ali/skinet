@@ -9,23 +9,16 @@
             </select>
             <h5 class="ml-3">Brands</h5>
             <ul class="list-group my-3">
-                <li class="list-group-item" 
-                    *ngFor="let brand of brands" 
-                    [class.active]="brand.id === this.brandIdSelected"
-                    [value]="brand.id"
-                    (click)="onBrandSelected(brand.id)"    
-                >
+                <li class="list-group-item" *ngFor="let brand of brands"
+                    [class.active]="brand.id === this.brandIdSelected" [value]="brand.id"
+                    (click)="onBrandSelected(brand.id)">
                     {{brand.name}}
                 </li>
             </ul>
             <h5 class="ml-3">Types</h5>
             <ul class="list-group my-3">
-                <li class="list-group-item"
-                    *ngFor="let type of types"
-                    [class.active]="type.id === this.typeIdSelected"
-                    [value]="type.id"
-                    (click)="onTypeSelected(type.id)"
-                >
+                <li class="list-group-item" *ngFor="let type of types" [class.active]="type.id === this.typeIdSelected"
+                    [value]="type.id" (click)="onTypeSelected(type.id)">
                     {{type.name}}
                 </li>
             </ul>
@@ -40,12 +33,23 @@
                     <button class="btn btn-outline-primary my-2">Search</button>
                     <button class="btn btn-outline-success my-2 ml-2">Resest</button>
                 </div>
-            </div> 
+            </div>
 
             <div class="row">
                 <div class="col-md-4 mb-4" *ngFor="let singleProduct of products">
                     <app-product-item [product]="singleProduct"></app-product-item>
                 </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <pagination 
+                    [boundaryLinks]="true"
+                    [totalItems]="77"
+                    previousText="&lsaquo;"
+                    nextText="&rsaquo;"
+                    firstText="&laquo;"
+                    lastText="&raquo;">
+                </pagination>
             </div>
         </section>
     </div>
