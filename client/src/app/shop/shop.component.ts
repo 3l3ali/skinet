@@ -77,7 +77,7 @@ export class ShopComponent implements OnInit {
   }
 
   onPageChange(event: any){
-    if(this.shopParams.pageNumber !== event) // changing the page number applies onPageChange by default in pager-component
+    if (this.shopParams.pageNumber !== event) // changing the page number applies onPageChange by default in pager-component
     {
       this.shopParams.pageNumber = event;
       this.getProducts();
