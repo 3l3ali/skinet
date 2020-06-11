@@ -10,3 +10,22 @@
     top: -12px;
     right: 33px;
 }
+
+a{
+    text-decoration: none;
+    color: #343a40;
+
+    &.active{
+        color: orange;
+    }
+}
+
+.logo{
+    &:hover{
+        cursor: pointer;
+    }
+
+    &:focus{
+        outline: none;  
+    }
+}
