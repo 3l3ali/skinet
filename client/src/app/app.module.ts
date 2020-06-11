@@ -19,7 +19,6 @@ import { HomeModule } from './home/home.module';
     BrowserAnimationsModule,
     HttpClientModule, // for api
     CoreModule,
-    ShopModule,
     HomeModule
   ],
   providers: [],
