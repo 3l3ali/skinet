@@ -14,7 +14,7 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute, private bcService: BreadcrumbService)
   { // Activated route is giving the active route
-
+    this.bcService.set('@productDetails', '');
   }
 
   ngOnInit(): void {
