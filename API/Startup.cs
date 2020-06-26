@@ -25,6 +25,12 @@ namespace API
         {
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+
+            services.AddSingleton<ConnectionMultiplixer>(config => {
+                var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+                return ConnectionMultiplixer.Connect(configuration);
+            }); //Add Redis
+
             services.AddAutoMapper(typeof(MappingProfiles)); //Maping Entites to Dtos 
             services.AddApplicationServices(); //in Api/Extentions
             services.AddSwaggerDocumentation(); //in Api/Extentions
