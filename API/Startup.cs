@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
 
 namespace API
 {
@@ -26,9 +27,9 @@ namespace API
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
 
-            services.AddSingleton<ConnectionMultiplixer>(config => {
+            services.AddSingleton<ConnectionMultiplexer>(config => {
                 var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
-                return ConnectionMultiplixer.Connect(configuration);
+                return ConnectionMultiplexer.Connect(configuration);
             }); //Add Redis
 
             services.AddAutoMapper(typeof(MappingProfiles)); //Maping Entites to Dtos 

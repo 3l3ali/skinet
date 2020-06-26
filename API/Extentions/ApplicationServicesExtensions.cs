@@ -30,7 +30,8 @@ namespace API.Extentions
                     return new BadRequestObjectResult(errorResponse);
                 };
             }); // to change api validation error msg
-        
+            services.AddScoped<IBasketRepository, BasketRepository>(); //for Redis 
+
             return services;
         } 
     }
